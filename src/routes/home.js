@@ -1,28 +1,43 @@
 import { Button, MenuItem, TextField } from "@material-ui/core";
 import '../App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
-const Home = ({categories}) => {
+const Home = ({categories, getQuestions, setQuestions, questions}) => {
 	const [category, setCategory] = useState('');
 	const [difficulty, setDifficulty] = useState('');
+  let history = useHistory();
+
+  useEffect(() => {
+    setQuestions([]);
+  }, [setQuestions])
 	const handleChange = (e) => {
 	    setCategory(e.target.value); 
 	}
+  const handleStart = () => {
+  if(category && difficulty){
+    getQuestions(category, difficulty); 
+    history.push('/quiz');
+
+  }
+  }
+  
 
 	return (
-    <div className="home-wrapper">
+    <section className="home-wrapper">
 	    <TextField 
 	      select
 	      className="categories"
 	      label="Select category"
 	      value={category}
 	      onChange={handleChange}
-	      
+	      required
 		>
 	      {categories.map(categ => (<MenuItem value={categ.id} key={categ.id}>{categ.name}</MenuItem>))}
 	    </TextField>
 	    <br></br>
 	    <TextField
+            required
             select
             label="Select Difficulty"
             className="categories"
@@ -40,13 +55,12 @@ const Home = ({categories}) => {
             </MenuItem>
         </TextField>
         <br></br>
-        <Button type="submit" 
-        value="submit" color="secondary" 
+        <Button color="secondary" 
         variant="contained" className="categories btn"
-        href="/quiz"
+        onClick={handleStart}
         >Start Quiz</Button>
 
-    </div>
+    </section>
   );
 }
 export default Home;
