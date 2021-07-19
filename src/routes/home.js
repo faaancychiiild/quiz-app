@@ -15,7 +15,7 @@ const Home = ({categories, getQuestions, setQuestions, questions, amount, setAmo
 	    setCategory(e.target.value); 
 	}
   const handleStart = () => {
-  if(category && difficulty){
+  if(category && difficulty && amount){
     getQuestions(category, difficulty); 
     history.push('/quiz');
   }
@@ -57,7 +57,7 @@ const Home = ({categories, getQuestions, setQuestions, questions, amount, setAmo
         <TextField
             required
             type="Number"
-            label="Select Number"
+            label="Enter Number"
             className="categories"
             onChange={(e) => {setAmount(e.target.value)}}
             value={amount}
