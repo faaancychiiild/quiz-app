@@ -57,10 +57,10 @@
   color: white;
 }
 .nav-buttons {
-  background-color: grey !important;
-  margin: 20px !important;
-  float: right;
+  background-color: #DAF7A6 !important;
+  margin: 20px !important;  
   color: #000 !important;
+  font-size: 20px !important;
 }
 
 .App-link {

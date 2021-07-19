@@ -2,7 +2,7 @@ import { Button } from "@material-ui/core";
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import '../App.css';
-const Quiz = ({questions, score, setScore}) => {
+const Quiz = ({questions, score, setScore, amount}) => {
 	const [i, setIndex] = useState(0);
 	const [notClicked, setNotClicked] = useState(true);
 	let [options, setOptions] = useState([]);
@@ -29,7 +29,7 @@ const Quiz = ({questions, score, setScore}) => {
 
 	}
 	const handleNext = () => {
-		if(i >= 9){
+		if(i >= amount-1){
 			history.push('/result');
 		}else{
 			setIndex(i+1);

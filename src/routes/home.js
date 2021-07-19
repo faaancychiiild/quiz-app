@@ -3,7 +3,7 @@ import '../App.css';
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
-const Home = ({categories, getQuestions, setQuestions, questions}) => {
+const Home = ({categories, getQuestions, setQuestions, questions, amount, setAmount}) => {
 	const [category, setCategory] = useState('');
 	const [difficulty, setDifficulty] = useState('');
   let history = useHistory();
@@ -18,7 +18,6 @@ const Home = ({categories, getQuestions, setQuestions, questions}) => {
   if(category && difficulty){
     getQuestions(category, difficulty); 
     history.push('/quiz');
-
   }
   }
   
@@ -54,6 +53,15 @@ const Home = ({categories, getQuestions, setQuestions, questions}) => {
               Hard
             </MenuItem>
         </TextField>
+        <br></br>
+        <TextField
+            required
+            type="Number"
+            label="Select Number"
+            className="categories"
+            onChange={(e) => {setAmount(e.target.value)}}
+            value={amount}
+        />
         <br></br>
         <Button color="secondary" 
         variant="contained" className="categories btn"
