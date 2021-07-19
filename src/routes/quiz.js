@@ -20,11 +20,12 @@ const Quiz = ({questions, score, setScore, amount}) => {
 	const handleCheck = (e) => {
 		if(notClicked){
 			if(e.target.value === questions[i]["correct_answer"]){
-			setScore(score+=1);
+			e.target.style.backgroundColor = '#9FF308';
+			setTimeout(()=>{setScore(score+=1)}, 500)
 		}else{
 			e.target.style.backgroundColor = '#FF5733';
 		}
-		setNotClicked(false);
+		setTimeout(()=>{setNotClicked(false);}, 500);
 		}
 
 	}
@@ -48,7 +49,7 @@ const Quiz = ({questions, score, setScore, amount}) => {
 
 	return (
 		<section className="quiz-form">
-		<Button variant="contained" color="secondary">SCORE: {score}</Button>
+		<Button variant="contained" className="nav-buttons">SCORE: {score}</Button>
 		<p className="quiz-quest">{str}</p>
 		<Option />
 		<Button className="nav-buttons" onClick={handleNext}>Next question</Button>

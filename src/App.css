@@ -19,10 +19,6 @@
   position: absolute;
   margin: 20px;
 }
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 .quiz-form {
   margin: 100px;
   width:  inherit;
@@ -32,6 +28,7 @@
   margin: 20px !important;
   background-color: #DAF7A6;
   color: #000 !important;
+  text-transform: capitalize !important;
 }
 .ops-wrapper {
   display: grid;
@@ -46,23 +43,20 @@
   position: relative;
   top: 20vh;
 }
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 .nav-buttons {
-  background-color: #DAF7A6 !important;
+  background-color: #0A1D3A !important;
   margin: 20px !important;  
-  color: #000 !important;
+  color: #fff !important;
   font-size: 20px !important;
+  text-transform: capitalize !important;
 }
-
+.quiz-time {
+  background-color: #0A1D3A;
+  color: #fff;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
 .App-link {
   color: #61dafb;
 }
