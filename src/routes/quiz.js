@@ -42,7 +42,7 @@ const Quiz = ({questions, score, setScore, amount}) => {
 	const Option = () => {
 		return (
 			<section className="ops-wrapper">
-				{options.map(op => <Button onClick={handleCheck} variant="outlined" value={op} className="op-button" key={options.indexOf(op)}>{op}</Button>)}
+				{options.map(op => <Button onClick={handleCheck} variant="outlined" value={op} className="op-button" key={options.indexOf(op)}><div dangerouslySetInnerHTML={{__html: op}}></div></Button>)}
 			</section>
 		)
 	}
@@ -50,7 +50,7 @@ const Quiz = ({questions, score, setScore, amount}) => {
 	return (
 		<section className="quiz-form">
 		<Button variant="contained" className="nav-buttons">SCORE: {score}</Button>
-		<p className="quiz-quest">{str}</p>
+		<p className="quiz-quest"><div dangerouslySetInnerHTML={{__html: str}}></div></p>
 		<Option />
 		<Button className="nav-buttons" onClick={handleNext}>Next question</Button>
 		<Button className="nav-buttons" href="/">
